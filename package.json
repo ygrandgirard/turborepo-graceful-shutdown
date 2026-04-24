@@ -5,6 +5,9 @@
   "devDependencies": {
     "turbo": "^2.9.7-canary.13"
   },
+  "scripts": {
+    "start": "node script.mjs"
+  },
   "packageManager": "npm@11.12.1",
   "workspaces": [
     "apps/*",

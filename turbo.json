@@ -1,6 +1,10 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
   "tasks": {
+    "//#start": {
+      "cache": false,
+      "env": ["NPM_CONFIG_SCRIPT_SHELL"]
+    },
     "build": {
       "dependsOn": [
         "prebuild",
