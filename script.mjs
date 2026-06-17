@@ -1,10 +1,12 @@
 import { createInterface } from 'node:readline';
 import { setTimeout } from 'node:timers/promises';
 
-const input = createInterface({ input: process.stdin });
+const input = createInterface({ input: process.stdin, terminal: true });
 const controller = new AbortController();
 
 async function gracefulShutdown() {
+    if (controller.signal.aborted) return;
+
     console.log('Graceful shutdown start');
     controller.abort();
 
