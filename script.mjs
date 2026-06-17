@@ -17,10 +17,16 @@ async function gracefulShutdown() {
 }
 
 // Unix
-process.on('SIGINT', gracefulShutdown);
+process.on('SIGINT', async () => {
+    console.log('process received SIGINT signal');
+    await gracefulShutdown();
+});
 
 // Windows
-input.on('SIGINT', gracefulShutdown);
+input.on('SIGINT', async () => {
+    console.log('readline.Interface received SIGINT signal');
+    await gracefulShutdown();
+});
 
 try {
     console.log('Ready');
